@@ -6,7 +6,7 @@ My journey of learning Data Structures and Algorithms using Java.
 
 | Topic | Problems Solved |
 |---|---:|
-| Arrays | 1 |
+| Arrays | 4 |
 | Strings | 0 |
 | Searching | 0 |
 | Sorting | 0 |
