@@ -22,3 +22,6 @@ My journey of learning Data Structures and Algorithms using Java.
 
 ### Arrays
 1. Build Array from Permutation — LeetCode — Easy
+2. Concatenation of Array — LeetCode — Easy
+3. Running Sum of 1D Array — LeetCode — Easy
+4. Richest Customer Wealth — LeetCode — Easy
