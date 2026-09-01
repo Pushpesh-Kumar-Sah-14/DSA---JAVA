@@ -1,0 +1,51 @@
+name: Update README
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-readme:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Update problem counts
+        run: |
+          arrays=$(find Arrays -name "*.java" | wc -l)
+          strings=$(find Strings -name "*.java" | wc -l)
+          searching=$(find Searching -name "*.java" | wc -l)
+          sorting=$(find Sorting -name "*.java" | wc -l)
+          recursion=$(find Recursion -name "*.java" | wc -l)
+          linkedlist=$(find "Linked List" -name "*.java" | wc -l)
+          stack=$(find Stack -name "*.java" | wc -l)
+          queue=$(find Queue -name "*.java" | wc -l)
+          trees=$(find Trees -name "*.java" | wc -l)
+          graphs=$(find Graphs -name "*.java" | wc -l)
+          dp=$(find "Dynamic Programming" -name "*.java" | wc -l)
+
+          sed -i "s/| Arrays | [0-9]*/| Arrays | $arrays/" README.md
+          sed -i "s/| Strings | [0-9]*/| Strings | $strings/" README.md
+          sed -i "s/| Searching | [0-9]*/| Searching | $searching/" README.md
+          sed -i "s/| Sorting | [0-9]*/| Sorting | $sorting/" README.md
+          sed -i "s/| Recursion | [0-9]*/| Recursion | $recursion/" README.md
+          sed -i "s/| Linked List | [0-9]*/| Linked List | $linkedlist/" README.md
+          sed -i "s/| Stack | [0-9]*/| Stack | $stack/" README.md
+          sed -i "s/| Queue | [0-9]*/| Queue | $queue/" README.md
+          sed -i "s/| Trees | [0-9]*/| Trees | $trees/" README.md
+          sed -i "s/| Graphs | [0-9]*/| Graphs | $graphs/" README.md
+          sed -i "s/| Dynamic Programming | [0-9]*/| Dynamic Programming | $dp/" README.md
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@github.com"
+          git add README.md
+          git commit -m "Update README progress" || exit 0
+          git push
