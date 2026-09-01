@@ -1,3 +1,15 @@
+
+/*
+Problem: Running Sum of 1d Array
+Platform: LeetCode
+Topic: Arrays
+Difficulty: Easy
+Date: 31 August 2026
+
+Time Complexity: O(n)
+Space Complexity: O(n)
+*/
+
 class Solution {
     public int[] runningSum(int[] nums) {
         int[] result=new int[nums.length];
